@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap"
         rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/app.css">
 </head>
 
@@ -384,3 +385,4 @@
 <!-- Mirrored from creazione.avanzare.co/reframe/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jul 2023 16:42:44 GMT -->
 
 </html>
+
