@@ -25840,7 +25840,7 @@ function contact_form() {
     });
     $.ajax({
   type: "POST",
-  url: "../contact.php",
+  url: "https://geekmac.online/assets/contact.php",
   data: t,
   dataType: "json",
   success: function (response) {
