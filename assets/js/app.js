@@ -25831,13 +25831,7 @@ function menu_setup() {
 function contact_form() {
   $("#contact-form").submit(function (e) {
     e.preventDefault();
-    for (var t = $(this).serializeArray(), o = t.length, i = 0; i < o; i++) "true" == $("#contact-form input[name='" + t[i].name + "']").attr("data-require-filling") ? t.push({
-      name: t[i].name + "_required",
-      value: !0
-    }) : t.push({
-      name: t[i].name + "_required",
-      value: !1
-    });
+   
     $.ajax({
       type: "POST",
       url: "https://geekmac.online/contact.php",
