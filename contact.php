@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($name) || empty($email) || empty($taxid) || empty($message)) {
         // Some fields are missing, handle the error
         // For example, you could redirect back to the form with an error message
-        header("Location: your_form_page.php?error=missing_fields");
+        header("Location: index.php?error=missing_fields");
         exit;
     }
 
@@ -26,11 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Send the email
     if (mail($to, $subject, $message, $headers)) {
         // The email was sent successfully, display success message
-        header("Location: your_form_page.php?success=true");
+        header("Location: index.php?success=true");
         exit;
     } else {
         // There was an error sending the email, handle the error
-        header("Location: your_form_page.php?error=email_error");
+        header("Location: index.php?error=email_error");
         exit;
     }
 }
