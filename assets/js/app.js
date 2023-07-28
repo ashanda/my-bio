@@ -25831,18 +25831,42 @@ function menu_setup() {
 function contact_form() {
   $("#contact-form").submit(function (e) {
     e.preventDefault();
-   
+    for (var t = $(this).serializeArray(), o = t.length, i = 0; i < o; i++) "true" == $("#contact-form input[name='" + t[i].name + "']").attr("data-require-filling") ? t.push({
+      name: t[i].name + "_required",
+      value: !0
+    }) : t.push({
+      name: t[i].name + "_required",
+      value: !1
+    });
     $.ajax({
-      type: "POST",
-      url: "https://geekmac.online/contact.php",
-      data: t,
-      dataType: "json",
-      success: function (e) {
-        $("#contact-form .error").removeClass("error"), setTimeout(function () {
-          "" !== e.nameMessage && $("#contact-form-name").addClass("error"), "" !== e.emailMessage && $("#contact-form-email").addClass("error"), "" !== e.messageMessage && $("#contact-form-message").addClass("error")
-        }, 25), "" !== e.succesMessage && ($("#contact-form").addClass("success"), $("#contact-form .button-area").css("display", "none"), $("#contact-form input,#contact-form textarea,#contact-form button").val("").prop("disabled", !0))
-      }
-    })
+  type: "POST",
+  url: "../contact.php",
+  data: t,
+  dataType: "json",
+  success: function (response) {
+    $("#contact-form .error").removeClass("error");
+
+    if (response.nameMessage !== "") {
+      $("#contact-form-name").addClass("error");
+    }
+    if (response.emailMessage !== "") {
+      $("#contact-form-email").addClass("error");
+    }
+    if (response.messageMessage !== "") {
+      $("#contact-form-message").addClass("error");
+    }
+
+    if (response.successMessage !== "") {
+      $("#contact-form").addClass("success");
+      $("#contact-form .button-area").css("display", "none");
+      $("#contact-form input, #contact-form textarea, #contact-form button").val("").prop("disabled", true);
+    }
+  },
+  error: function () {
+    // Handle the error case here if there's a problem with the AJAX request or response
+    console.log("An error occurred during the AJAX request.");
+  }
+});
   })
 }
 
