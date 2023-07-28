@@ -25840,7 +25840,7 @@ function contact_form() {
     });
     $.ajax({
       type: "POST",
-      url: "assets/php/contact.php",
+      url: "assets/contact.php",
       data: t,
       dataType: "json",
       success: function (e) {
